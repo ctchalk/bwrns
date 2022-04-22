@@ -50,8 +50,8 @@ def randntwk(filename):
 
     vntwk = np.vectorize(ntwk)
 
-    x = np.linspace(-1, 1, 8)
-    y = np.linspace(-1, 1, 12)
+    x = np.linspace(0, 1, 8)
+    y = np.linspace(0, 1, 12)
     X, Y = np.meshgrid(x, y)
     data = vntwk(X, Y)
     
