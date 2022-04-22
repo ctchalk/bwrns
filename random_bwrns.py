@@ -2,12 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from os import path
 
-#https://stackoverflow.com/questions/11144513/cartesian-product-of-x-and-y-array-points-into-single-array-of-2d-points
-def cartesian_product(*arrays):
-    ndim = len(arrays)
-    return (np.stack(np.meshgrid(*arrays), axis=-1)
-              .reshape(-1, ndim))
-
 #Generate random networks until a nontrivial network is found
 def randntwk(filename):
     #do while
@@ -42,8 +36,8 @@ def randntwk(filename):
 
 
     def ntwk(x1, x2):
-        layer1out = relu(np.array([x1, x2]) @ w1) + b1
-        layer2out = relu(layer1out @ w2) + b2
+        layer1out = relu((np.array([x1, x2]) @ w1) + b1)
+        layer2out = relu((layer1out @ w2) + b2)
         layer3out = (layer2out @ w3) + b3
         return np.ndarray.item(layer3out)
 
